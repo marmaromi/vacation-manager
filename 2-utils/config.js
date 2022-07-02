@@ -24,6 +24,7 @@ var Config = /** @class */ (function () {
         this.sqlUser = "";
         this.sqlPassword = "";
         this.sqlDatabase = "";
+        this.imagesPath = "";
     }
     return Config;
 }());
@@ -36,6 +37,7 @@ var DevelopmentConfig = /** @class */ (function (_super) {
         _this.sqlUser = "root";
         _this.sqlPassword = "";
         _this.sqlDatabase = "vacation-manager";
+        _this.imagesPath = "./src/1-assets/images/";
         return _this;
     }
     return DevelopmentConfig;
@@ -49,6 +51,7 @@ var ProductionConfig = /** @class */ (function (_super) {
         _this.sqlUser = "b685b7d7b43385";
         _this.sqlPassword = "ab80a4ae";
         _this.sqlDatabase = "heroku_6a03ee6fa43d6ce";
+        _this.imagesPath = "./1-assets/images/";
         return _this;
     }
     return ProductionConfig;

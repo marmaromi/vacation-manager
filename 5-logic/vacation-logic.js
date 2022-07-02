@@ -44,6 +44,7 @@ var errors_model_1 = require("../4-models/errors-model");
 var uuid_1 = require("uuid");
 var fs_1 = __importDefault(require("fs"));
 var socket_logic_1 = __importDefault(require("./socket-logic"));
+var config_1 = __importDefault(require("../2-utils/config"));
 var getAllVacations = function () { return __awaiter(void 0, void 0, void 0, function () {
     var sql, vacations;
     return __generator(this, function (_a) {
@@ -97,7 +98,7 @@ var addVacation = function (vacation) { return __awaiter(void 0, void 0, void 0,
                 dotIndex = vacation.image.name.lastIndexOf(".");
                 extension = vacation.image.name.substring(dotIndex);
                 vacation.imageName = (0, uuid_1.v4)() + extension;
-                return [4 /*yield*/, vacation.image.mv("./1-assets/images/" + vacation.imageName)];
+                return [4 /*yield*/, vacation.image.mv(config_1.default.imagesPath + vacation.imageName)];
             case 1:
                 _a.sent();
                 delete vacation.image;
@@ -128,7 +129,8 @@ function updateVacation(vacation) {
                 case 1:
                     vacationToUpdate = _b.sent();
                     if (!vacation.image) return [3 /*break*/, 4];
-                    imageToDelete_1 = "./1-assets/images/" + vacationToUpdate.imageName;
+                    imageToDelete_1 = config_1.default.imagesPath + vacationToUpdate.imageName;
+                    console.log(imageToDelete_1);
                     return [4 /*yield*/, fs_1.default.unlink(imageToDelete_1, function (err) {
                             if (err) {
                                 console.log("Image to delete not found in path: \"".concat(imageToDelete_1, "\""));
@@ -141,7 +143,7 @@ function updateVacation(vacation) {
                     dotIndex = vacation.image.name.lastIndexOf(".");
                     extension = vacation.image.name.substring(dotIndex);
                     vacation.imageName = (0, uuid_1.v4)() + extension;
-                    return [4 /*yield*/, vacation.image.mv("./1-assets/images/" + vacation.imageName)];
+                    return [4 /*yield*/, vacation.image.mv(config_1.default.imagesPath + vacation.imageName)];
                 case 3:
                     _b.sent();
                     delete vacation.image;
@@ -178,7 +180,7 @@ var deleteVacation = function (id) { return __awaiter(void 0, void 0, void 0, fu
             case 0: return [4 /*yield*/, getOneVacation(id)];
             case 1:
                 vacationToDelete = _a.sent();
-                imageToDelete = "./1-assets/images/" + vacationToDelete.imageName;
+                imageToDelete = config_1.default.imagesPath + vacationToDelete.imageName;
                 fs_1.default.unlink(imageToDelete, function (err) {
                     if (err) {
                         console.log("Image to delete not found in path: \"".concat(imageToDelete, "\""));
