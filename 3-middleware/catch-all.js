@@ -52,10 +52,6 @@ function catchAll(error, req, res, next) {
                     // Log error to log file    
                 }
             }
-            else {
-                status = 500;
-                message = "Server Error";
-            }
             res.status(status).send(message);
             return [2 /*return*/];
         });
