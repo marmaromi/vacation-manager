@@ -35,27 +35,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var config_1 = __importDefault(require("../2-utils/config"));
 function catchAll(error, req, res, next) {
     return __awaiter(this, void 0, void 0, function () {
         var status, message;
         return __generator(this, function (_a) {
             console.log(error);
-            if (!config_1.default.isProduction) {
-                status = error.status || 500;
-                message = error.message || "Unknown Error";
-                if (status === 500) {
-                    // Log error to log file    
-                }
-            }
-            else {
-                status = 500;
-                message = "Server Error";
-            }
+            status = error.status || 500;
+            message = error.message || "Unknown Error";
             res.status(status).send(message);
             return [2 /*return*/];
         });
