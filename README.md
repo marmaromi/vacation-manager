@@ -18,4 +18,6 @@
   - Redux
   - CSS
 
-- Admin Credentials: admin, Aa123456!
+- Admin Credentials: 
+  - username: admin
+  - password: Aa123456!
