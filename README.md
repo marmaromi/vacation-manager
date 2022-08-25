@@ -13,8 +13,7 @@
   - Express
   - Socket.IO
 - Frontend: 
-  - Typescript 
-  - React
+  - React + TypeScript
   - Redux
   - CSS
 
