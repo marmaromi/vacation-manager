@@ -13,9 +13,9 @@
   - Express
   - Socket.IO
 - Frontend: 
- - Typescript 
- - React
- - Redux
- - CSS
+  - Typescript 
+  - React
+  - Redux
+  - CSS
 
 - Admin Credentials: admin, Aa123456!
